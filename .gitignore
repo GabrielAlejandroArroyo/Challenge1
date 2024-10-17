@@ -1,0 +1,89 @@
+# Ignorar archivos de configuración de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignorar directorios de dependencias
+packages/
+node_modules/
+
+# Ignorar archivos generados por la compilación
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.log
+*.vspscc
+*.vssscc
+*.vspcc
+*.tmp
+
+# No ignorar específicamente el archivo Prospection.Backend.Lib.dll
+!Libs/Prospection.Backend.Lib.dll
+
+# Ignorar archivos de configuración de publicación
+.publish/
+
+# Ignorar archivos de configuración de usuario
+*.rsuser
+*.sln.docstates
+
+# Ignorar archivos de configuración de Rider
+.idea/
+*.sln.iml
+
+# Ignorar archivos de configuración de JetBrains Rider
+.idea/
+*.sln.iml
+
+# Ignorar carpetas específicas del sistema operativo
+[Tt]humbs.db
+[Dd]esktop.ini
+ehthumbs.db
+*.DS_Store
+
+# Ignorar archivos de configuración de versiones anteriores
+_ReSharper*/
+*.ReSharper.user
+*.[Rr]e[Ss]harper
+
+# Ignorar archivos de configuración de Visual Studio Code
+.vscode/
+.history/
+
+# Ignorar archivos de configuración de NuGet
+*.nupkg
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+
+# Ignorar archivos de configuración de Mac
+.idea/
+*.sln.iml
+*.sln.cache
+
+# Ignorar archivos de configuración de Xamarin
+*.xaml
+*.xaml.cs
+
+# Ignorar archivos de configuración de Coverlet
+coverage/
+
+# Ignorar archivos de configuración de Test Result
+TestResults/
+
+# Ignorar archivos de configuración de Azure Pipelines
+.docker/
+.dockerignore
+Dockerfile
+
+# Ignorar archivos de configuración de Mono Auto Generated
+mono_crash.*
+
+# Ignorar archivos de configuración de ASP.NET Scaffolding
+ScaffoldingReadMe.txt

@@ -1,0 +1,6 @@
+@WebApiVerifarma_HostAddress = http://localhost:5216
+
+GET {{WebApiVerifarma_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
