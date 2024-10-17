@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.DTOs;
 using WebApiVeriframa.Models;
 using WebApiVeriframa.Services.Implementation;
@@ -16,6 +17,7 @@ namespace WebApiVeriframa.Controllers
         {
             _objectService = objectService;
         }
+
         // GET: api/Farmacia
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FarmaciaReadDTO>>> Get()
@@ -44,6 +46,32 @@ namespace WebApiVeriframa.Controllers
         {
             var resultado = await _objectService.GetFarmaciaMasCercana(latitud, longitud);
             return resultado;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<FarmaciaReadDTO>> Create(FarmaciaCreateDTO objectDto)
+        {
+            if (objectDto == null)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                var newObject = await _objectService.CreateAsync(objectDto);
+                return CreatedAtAction(nameof(Get), new { id = newObject.Id }, newObject);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Manejar otros posibles errores de base de datos
+                return StatusCode(500, "Error al guardar los cambios. Por favor, inténtalo de nuevo.");
+            }
+            catch (Exception ex)
+            {
+                // Capturar cualquier otra excepción
+                return StatusCode(500, $"Ocurrió un error: {ex.Message}");
+            }
+
+
         }
 
     }
