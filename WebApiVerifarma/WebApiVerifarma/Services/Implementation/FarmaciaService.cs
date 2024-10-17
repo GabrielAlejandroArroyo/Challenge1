@@ -21,6 +21,12 @@ namespace WebApiVeriframa.Services.Implementation
 
         public async Task<FarmaciaReadDTO> CreateAsync(FarmaciaCreateDTO objectDTO)
         {
+
+            if (string.IsNullOrWhiteSpace(objectDTO.Nombre) || string.IsNullOrWhiteSpace(objectDTO.Direccion))
+            {
+                throw new ArgumentException("Nombre y Dirección son campos obligatorios.");
+            }
+
             var resultado = _mapper.Map<Farmacia>(objectDTO);
 
             _context.Farmacias.Add(resultado);
