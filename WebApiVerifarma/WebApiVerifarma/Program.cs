@@ -1,6 +1,3 @@
-//using Microsoft.AspNetCore.Authentication.JwtBearer;
-//using Microsoft.IdentityModel.Tokens;
-//using System.Text;
 using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.Data;
 using WebApiVeriframa.Mappings;
@@ -14,24 +11,6 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//})
-//.AddJwtBearer(options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters
-//    {
-//        ValidateIssuer = true,
-//        ValidateAudience = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        // Configura las opciones adicionales aquí...
-//    };
-//});
-
-
 var serviceProvider = builder.Services.BuildServiceProvider();
 
 // Configurar CORS
@@ -42,14 +21,14 @@ builder.Services.AddCors(options =>
         builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithExposedHeaders("x-pagination"); // Expone el encabezado x-pagination
+                .WithExposedHeaders("x-pagination"); // Expone el encabezado x-pagination sera usado para enviar busquedas por post y ser paginadas desde el front end
     });
     options.AddPolicy("AllowAllOrigins", builder =>
     {
         builder.AllowAnyOrigin() // Permite cualquier URL/origen
                .AllowAnyMethod()
                .AllowAnyHeader()
-               .WithExposedHeaders("x-pagination"); // Expone el encabezado x-pagination
+               .WithExposedHeaders("x-pagination"); // Expone el encabezado x-pagination sera usado para enviar busquedas por post y ser paginadas desde el front end
     });
 });
 

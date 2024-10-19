@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.DTOs;
-using WebApiVeriframa.Models;
-using WebApiVeriframa.Services.Implementation;
 using WebApiVeriframa.Services.Interfaces;
 using System.Text.Json;
 
