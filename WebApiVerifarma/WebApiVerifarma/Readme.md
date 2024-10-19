@@ -87,6 +87,37 @@ WebApiVerifarma/
 └── ... otros archivos y carpetas necesarios
 
 
+## Workflow de creacion de estructura de proyecto
+
+WebApiVerifarma/
+│
+├── Models/
+├── NuevoModelo.cs
+├── DTOs/
+│ ├── NuevoModelo
+│ ├──── NuevoModeloCreateDTO
+│ ├──── NuevoModeloReadDTO.cs
+│ ├──── NuevoModeloDeleteDTO.cs
+│ ├──── NuevoModeloUpdateDTO.cs
+├── Mappings/
+│ ├── MappingProfile.cs (Agregar nuevo mapeo)
+├── Services/
+├──-── Implementation/
+├──-── Implementation/NuevoModeloService.cs
+├──-── Interfaces/
+├──-── Interfaces/INuevoModeloService.cs
+├── Data/
+│ ├── ApplicationDbContext.cs (Agrar contexto NuevoModelo)
+├── Controllers/
+│ ├── NuevoModeloController.cs
+│
+├── Startup.cs (para ASP.NET Core 5 y versiones anteriores agregar nuevo servicio de contexto)
+│
+├── Program.cs (para ASP.NET Core 6 y versiones posteriores agregar nuevo servicio de contexto)
+│
+└── ... otros archivos y carpetas necesarios
+
+
 ## Descripción de la Estructura Proyecto
 
 ### Controllers
@@ -98,21 +129,18 @@ Contiene los controladores de la API, que gestionan las solicitudes HTTP y devue
 
 Contiene los Data Transfer Objects (DTOs), que son objetos simples usados para transferir datos entre el cliente y el servidor.
 - `FarmaciaCreateDTO.cs`: DTOs para el modelo `CocomoState`.
-- `EmployeeDTOs.cs`: DTOs para el modelo `Employee` (ejemplo previo).
 
 ### Models
 
 Contiene las clases de modelo que representan la estructura de los datos.
-- `CocomoState.cs`: Modelo para `CocomoState`.
-- `Employee.cs`: Modelo para `Employee` (ejemplo previo).
+- `Farmacia.cs`: Modelo para `Farmacia`.
 
+- 
 ### Services
 
 Contiene las interfaces y las implementaciones de los servicios, que encapsulan la lógica de negocio y las operaciones CRUD.
-- `ICocomoStateService.cs`: Interfaz para el servicio `CocomoState`.
-- `CocomoStateService.cs`: Implementación del servicio `CocomoState`.
-- `IEmployeeService.cs`: Interfaz para el servicio `Employee` (ejemplo previo).
-- `EmployeeService.cs`: Implementación del servicio `Employee` (ejemplo previo).
+- `IFarmaciaService.cs`: Interfaz para el servicio `Farmacia` - Se establecen los metodo que tendra la implementacion de los mismo.
+- `FarmaciaService.cs`: Implementación del servicio `Farmacia`.
 
 ### Mappings
 
@@ -144,11 +172,10 @@ Archivo de configuración específico para el entorno de desarrollo.
 
 Archivo de configuración específico para el entorno de producción.
 
-### Prospection.Seed.csproj
-
-Archivo de proyecto de .NET que define las dependencias y configuraciones del proyecto.
 
 Esta estructura sigue las prácticas recomendadas para la organización de un proyecto ASP.NET Core, facilitando la separación de preocupaciones y el mantenimiento del código.
+
+
 
 
 
