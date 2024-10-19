@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using WebApiVeriframa.DTOs;
+using WebApiVerifarma.DTOs.Farmacia;
 using WebApiVeriframa.Models;
 
 namespace WebApiVeriframa.Mappings

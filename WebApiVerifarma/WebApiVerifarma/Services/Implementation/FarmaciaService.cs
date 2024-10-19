@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using log4net;
 using Microsoft.EntityFrameworkCore;
+using WebApiVerifarma.DTOs.Farmacia;
 using WebApiVeriframa.Data;
-using WebApiVeriframa.DTOs;
 using WebApiVeriframa.Models;
 using WebApiVeriframa.Services.Interfaces;
 

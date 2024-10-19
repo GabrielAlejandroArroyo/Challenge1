@@ -1,4 +1,4 @@
-﻿using WebApiVeriframa.DTOs;
+﻿using WebApiVerifarma.DTOs.Farmacia;
 
 
 namespace WebApiVeriframa.Services.Interfaces

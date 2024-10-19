@@ -1,4 +1,4 @@
-﻿namespace WebApiVeriframa.DTOs
+﻿namespace WebApiVerifarma.DTOs.Farmacia
 {
     public class FarmaciaUpdateDTO
     {

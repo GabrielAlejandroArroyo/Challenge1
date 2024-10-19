@@ -1,7 +1,8 @@
-﻿namespace WebApiVeriframa.DTOs
+﻿namespace WebApiVerifarma.DTOs.Farmacia
 {
-    public class FarmaciaCreateDTO
+    public class FarmaciaReadDTO
     {
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public decimal Latitud { get; set; }

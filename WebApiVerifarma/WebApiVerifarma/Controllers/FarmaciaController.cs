@@ -1,9 +1,9 @@
 ﻿using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using WebApiVeriframa.DTOs;
 using WebApiVeriframa.Services.Interfaces;
 using System.Text.Json;
+using WebApiVerifarma.DTOs.Farmacia;
 
 namespace WebApiVeriframa.Controllers
 {
