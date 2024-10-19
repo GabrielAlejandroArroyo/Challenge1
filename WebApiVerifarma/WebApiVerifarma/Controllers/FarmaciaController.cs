@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using log4net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.DTOs;
 using WebApiVeriframa.Models;
 using WebApiVeriframa.Services.Implementation;
 using WebApiVeriframa.Services.Interfaces;
+using System.Text.Json;
 
 namespace WebApiVeriframa.Controllers
 {
@@ -11,6 +13,7 @@ namespace WebApiVeriframa.Controllers
     [ApiController]
     public class FarmaciaController : ControllerBase
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(FarmaciaController));
         private readonly IFarmaciaService _objectService;
 
         public FarmaciaController(IFarmaciaService objectService)
@@ -18,11 +21,14 @@ namespace WebApiVeriframa.Controllers
             _objectService = objectService;
         }
 
+
         // GET: api/Farmacia
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FarmaciaReadDTO>>> Get()
         {
+            log.Info("Obteniendo todas Farmacia");
             var resultados = await _objectService.GetAllAsync();
+            log.Info("Total Farmacias obtenidas : "+ resultados.Count() + "  - Farmacias :" + JsonSerializer.Serialize(resultados));
             return Ok(resultados);
         }
 
@@ -30,13 +36,15 @@ namespace WebApiVeriframa.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<FarmaciaReadDTO>> Get(int id)
         {
+            log.Info("Obteniendo la Farmacia con id = " + id);
             var resultado = await _objectService.GetByIdAsync(id);
 
             if (resultado == null)
             {
+                log.Info("Farmacia con id= "+ id +" - No encontrada " );
                 return NotFound();
             }
-
+            log.Info("Farmacia con id= " + id + "  - Encontrada " + JsonSerializer.Serialize(resultado));
             return Ok(resultado);
         }
 
@@ -44,7 +52,9 @@ namespace WebApiVeriframa.Controllers
         [HttpGet("FarmaciaMasCercana")]
         public async Task<FarmaciaReadDTO> GetFarmaciaMasCercana([FromQuery] decimal latitud, [FromQuery] decimal longitud)
         {
+            log.Info("Obteniendo la Farmacia mas cercana latitud: " + latitud + " - Longitud: "+ longitud);
             var resultado = await _objectService.GetFarmaciaMasCercana(latitud, longitud);
+            log.Info("Farmacia con id= " + resultado.Id + "  - Encontrada " + JsonSerializer.Serialize(resultado));
             return resultado;
         }
 
@@ -53,11 +63,14 @@ namespace WebApiVeriframa.Controllers
         {
             if (objectDto == null)
             {
+                log.Error("Error Creando farmacia");
                 return BadRequest();
             }
             try
             {
+                log.Info("Creando farmacia : " + JsonSerializer.Serialize(objectDto));
                 var newObject = await _objectService.CreateAsync(objectDto);
+                log.Info("Farmacia creada : " + JsonSerializer.Serialize(newObject));
                 return CreatedAtAction(nameof(Get), new { id = newObject.Id }, newObject);
             }
             catch (DbUpdateException ex)

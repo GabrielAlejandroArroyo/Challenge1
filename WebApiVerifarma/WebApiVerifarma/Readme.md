@@ -15,18 +15,17 @@ git push -u origin main
 Desde terminal ir a la carpeta de proyecto WebApiVerifarma
 
 dotnet add package Automapper
-
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package Microsoft.EntityFrameworkCore.Design
-
+dotnet add package log4net
 
 dotnet add WebApiVerifarma.Tests package Moq
 
 Desde terminal ir a la carpeta de proyecto WebApiVerifarma.Test
 
 
-
+#Levata y genera tablas en la base de datos
 
 ## Comandos Entity Framework
 
@@ -40,3 +39,8 @@ dotnet ef database update
 
 
 
+
+## La definicion de la API se expone en Swagger 
+
+Url, para pruebas 
+https://localhost:7196/swagger/index.html

@@ -6,6 +6,10 @@ using WebApiVeriframa.Data;
 using WebApiVeriframa.Mappings;
 using WebApiVeriframa.Services.Interfaces;
 using WebApiVeriframa.Services.Implementation;
+using log4net;
+using log4net.Config;
+using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -66,6 +70,11 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IFarmaciaService, FarmaciaService>();
 
 var app = builder.Build();
+
+// Inicializa log4net
+var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+XmlConfigurator.Configure(logRepository, new System.IO.FileInfo("log4net.config"));
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

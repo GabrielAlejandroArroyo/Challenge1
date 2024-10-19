@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using log4net;
 using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.Data;
 using WebApiVeriframa.DTOs;
@@ -9,6 +10,7 @@ namespace WebApiVeriframa.Services.Implementation
 {
     public class FarmaciaService : IFarmaciaService
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(FarmaciaService));
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
         private readonly List<Farmacia> _farmacias;
