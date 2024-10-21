@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using WebApiVeriframa.Services.Interfaces;
 using System.Text.Json;
 using WebApiVerifarma.DTOs.Farmacia;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiVeriframa.Controllers
 {
+    //[Authorize] // TODO Falta aplicar authenticacion basica aplica sobre todo el endpoint
     [Route("api/[controller]")]
     [ApiController]
     public class FarmaciaController : ControllerBase

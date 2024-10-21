@@ -24,6 +24,9 @@ dotnet add WebApiVerifarma.Tests package Moq
 
 Desde terminal ir a la carpeta de proyecto WebApiVerifarma.Test
 
+## Libreia de segurida para el proyecto
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+
 
 #Levata y genera tablas en la base de datos
 
